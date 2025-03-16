@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java History & Basics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #002147; color: white; }
+        .container { max-width: 900px; margin: auto; padding: 20px; background: #8B0000; box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); animation: fadeIn 1.5s ease-in; border-radius: 10px; }
+        h1, h2 { color: #FFD700; }
+        nav { background: #8B0000; padding: 10px; text-align: center; border-bottom: 3px solid #FFD700; }
+        nav a { color: white; text-decoration: none; padding: 10px 15px; transition: background 0.3s ease-in-out; }
+        nav a:hover { background: #FFD700; color: #8B0000; }
+        .code-box { background: #001F3F; padding: 10px; border-left: 5px solid #FFD700; font-family: monospace; animation: slideIn 1.2s ease-in-out; color: #FFD700; }
+        footer { text-align: center; padding: 10px; margin-top: 20px; background: #8B0000; color: white; border-top: 3px solid #FFD700; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .container h2 {
+            position: relative;
+            animation: bounceIn 1.5s ease-in-out;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#history">Java History</a>
+        <a href="#features">Features</a>
+        <a href="#basics">Java Basics</a>
+        <a href="#applications">Applications</a>
+        <a href="https://www.w3schools.com/java/" target="_blank">Learn More</a>
+    </nav>
+    <div class="container">
+        <h1>Introduction to Java</h1>
+        <p>Java is a high-level, class-based, object-oriented programming language that is widely used for building applications across multiple platforms.</p>
+        
+        <h2 id="history">History of Java</h2>
+        <p>Java was developed by James Gosling at Sun Microsystems and released in 1995. Originally named "Oak," it was intended for interactive television, but it was too advanced for the digital cable industry at the time. Java gained popularity due to its platform independence, achieved through the Java Virtual Machine (JVM).</p>
+        
+        <h2 id="features">Key Features of Java</h2>
+        <ul>
+            <li><b>Platform Independence:</b> Java programs run on any device with a JVM, following the "Write Once, Run Anywhere" principle.</li>
+            <li><b>Object-Oriented:</b> Java supports encapsulation, inheritance, and polymorphism.</li>
+            <li><b>Automatic Memory Management:</b> Java uses garbage collection to manage memory automatically.</li>
+            <li><b>Secure:</b> Java provides security features like bytecode verification and a security manager.</li>
+            <li><b>Multithreading:</b> Java supports concurrent execution of multiple threads.</li>
+        </ul>
+        
+        <h2 id="basics">Java Basics</h2>
+        <p>Here is a simple Java program that prints "Hello, World!":</p>
+        <div class="code-box">
+            <code>
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+            </code>
+        </div>
+        <p>In Java:</p>
+        <ul>
+            <li><b>public class Main</b> - Defines a class named Main.</li>
+            <li><b>public static void main(String[] args)</b> - The main method where execution starts.</li>
+            <li><b>System.out.println("Hello, World!");</b> - Prints output to the console.</li>
+        </ul>
+        
+        <h2 id="applications">Applications of Java</h2>
+        <p>Java is used in various fields, including:</p>
+        <ul>
+            <li><b>Web Development:</b> Java frameworks like Spring and Hibernate are used to create dynamic web applications.</li>
+            <li><b>Mobile Development:</b> Android applications are primarily built using Java.</li>
+            <li><b>Enterprise Applications:</b> Java powers large-scale business applications in banking, retail, and healthcare.</li>
+            <li><b>Game Development:</b> Popular games like Minecraft are built using Java.</li>
+            <li><b>Embedded Systems:</b> Java is used in smartcards, set-top boxes, and IoT devices.</li>
+        </ul>
+        
+        <h2>Further Learning</h2>
+        <p>Visit <a href="https://www.w3schools.com/java/" target="_blank">W3Schools Java Tutorial</a> for more details.</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Java Learning Hub | Powered by W3Schools</p>
+    </footer>
+</body>
+</html>
