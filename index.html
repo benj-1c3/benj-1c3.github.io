@@ -13,16 +13,23 @@
             overflow-x: hidden;
         }
         header {
-            background: #333;
+            background: #8B0000;
             color: white;
             padding: 15px;
             text-align: center;
             animation: fadeInDown 1s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            height: 60px;
+            margin-right: 15px;
         }
         nav {
             display: flex;
             justify-content: center;
-            background: #444;
+            background: #002147;
             padding: 10px;
             position: sticky;
             top: 0;
@@ -46,22 +53,22 @@
             background: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1;
+            transform: translateY(0);
             transition: opacity 1s ease-out, transform 1s ease-out;
         }
         .lesson {
             padding: 10px;
             margin-top: 10px;
             background: #eee;
-            border-left: 5px solid #333;
+            border-left: 5px solid #8B0000;
             animation: fadeInUp 1s ease-out;
         }
         .lesson a, .compiler-button, .quiz-button {
             display: inline-block;
             margin-top: 10px;
             padding: 8px 15px;
-            background: #333;
+            background: #002147;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -71,10 +78,25 @@
             background: #555;
             transform: scale(1.1);
         }
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #8B0000;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .chat-button:hover {
+            background: #555;
+            transform: scale(1.1);
+        }
         footer {
             text-align: center;
             padding: 15px;
-            background: #333;
+            background: #8B0000;
             color: white;
             margin-top: 20px;
             animation: fadeInUp 1s ease-out;
@@ -95,8 +117,11 @@
 </head>
 <body>
     <header>
-        <h1>Java Learning Platform</h1>
-        <p>Development of a Web-Based Learning Platform for Java Programming for Grade 11 ICT Students</p>
+        <img src="image.png" alt="AMA Logo">
+        <div>
+            <h1>Java Learning Platform</h1>
+            <p>Development of a Web-Based Learning Platform for Java Programming for Grade 11 ICT Students</p>
+        </div>
     </header>
     <nav>
         <a href="#home">Home</a>
@@ -108,10 +133,6 @@
     <div class="container" id="home">
         <h2>Welcome to Java Learning Platform</h2>
         <p>This platform is designed to help Grade 11 ICT students learn Java programming through structured modules, interactive tools, and valuable resources.</p>
-    </div>
-    <div class="container" id="modules">
-        <h2>Course Modules</h2>
-        <p>Explore a step-by-step Java programming curriculum tailored for beginners.</p>
     </div>
     <div class="container" id="lessons">
         <h2>Lessons</h2>
@@ -140,29 +161,9 @@
             <li><a href="https://www.javatpoint.com/java-tutorial" target="_blank">JavaTpoint Java Tutorial</a></li>
         </ul>
     </div>
+    <button class="chat-button">Java AI Chat</button>
     <footer>
         <p>&copy; 2025 Java Learning Platform. All rights reserved.</p>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let containers = document.querySelectorAll(".container");
-            let options = {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0.2
-            };
-            let observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = "translateY(0)";
-                    }
-                });
-            }, options);
-            containers.forEach(container => {
-                observer.observe(container);
-            });
-        });
-    </script>
 </body>
 </html>
