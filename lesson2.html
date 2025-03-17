@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Up Java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #002855;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #002855;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-panel {
+            background: #002855;
+            padding: 15px;
+            position: fixed;
+            left: 0;
+            top: 60px;
+            width: 185px;
+            height: 100%;
+        }
+        .nav-panel h3 {
+            color: #ffcc00;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .nav-panel a {
+            display: block;
+            color: #ffcc00;
+            padding: 5px 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-panel a:hover {
+            background: #ffcc00;
+            color: #002855;
+        }
+        .home-button {
+            background-color: #ffcc00;
+            color: #002855;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #a6192e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s;
+            margin-left: 216px;
+        }
+        h1, h2 {
+            color: #ffcc00;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f4f4f4;
+            color: #002855;
+            border-left: 5px solid #ffcc00;
+            animation: slideIn 1s ease-in-out;
+        }
+        a {
+            color: #002855;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: right;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #002855;
+        }
+        .lesson-button {
+            background-color: #ffcc00;
+            color: #002855;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="home-button">Home</a>
+    </div>
+    <div class="nav-panel">
+        <h3>Option 1: JDK and IDE</h3>
+        <a href="#jdk-install">Step 1: Install JDK</a>
+        <a href="#ide-install">Step 2: Install an IDE</a>
+        <h3>Option 2: Visual Studio Code</h3>
+        <a href="#vscode-install">Step 1: Install VS Code</a>
+        <a href="#java-extensions">Step 2: Install Java Extensions</a>
+    </div>
+    <div class="container">
+        <h1>Lesson 2: Setting Up Java</h1>
+        <h2>Option 1: Install JDK and Set Up an IDE</h2>
+        <div class="step" id="jdk-install">
+            <h3>Step 1: Download and Install JDK</h3>
+            <p>Visit the official Oracle website and download the latest JDK version.</p>
+            <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">Download JDK</a>
+        </div>
+        <div class="step" id="ide-install">
+            <h3>Step 2: Install an IDE</h3>
+            <p>Choose an IDE such as Eclipse or IntelliJ IDEA.</p>
+            <a href="https://www.eclipse.org/downloads/" target="_blank">Download Eclipse</a> | 
+            <a href="https://www.jetbrains.com/idea/download/" target="_blank">Download IntelliJ IDEA</a>
+        </div>
+        <h2>Option 2: Set Up Java in Visual Studio</h2>
+        <div class="step" id="vscode-install">
+            <h3>Step 1: Install Visual Studio Code</h3>
+            <a href="https://code.visualstudio.com/" target="_blank">Download Visual Studio Code</a>
+        </div>
+        <div class="step" id="java-extensions">
+            <h3>Step 2: Install Java Extensions</h3>
+            <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack" target="_blank">Java Extension Pack</a>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="lesson3.html" class="lesson-button">Lesson 3</a>
+    </div>
+</body>
+</html>
