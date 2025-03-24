@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Basics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #002147; color: white; }
+        .container { max-width: 900px; margin: auto; padding: 20px; background: #8B0000; box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); animation: fadeIn 1.5s ease-in; border-radius: 10px; }
+        h1, h2 { color: #FFD700; }
+        nav { background: #8B0000; padding: 10px; text-align: center; border-bottom: 3px solid #FFD700; }
+        nav a { color: white; text-decoration: none; padding: 10px 15px; transition: background 0.3s ease-in-out; }
+        nav a:hover { background: #FFD700; color: #8B0000; }
+        .code-box { background: #001F3F; padding: 10px; border-left: 5px solid #FFD700; font-family: monospace; animation: slideIn 1.2s ease-in-out; color: #FFD700; }
+        footer { text-align: center; padding: 10px; margin-top: 20px; background: #8B0000; color: white; border-top: 3px solid #FFD700; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateX(-50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#syntax">Syntax</a>
+        <a href="#variables">Variables</a>
+        <a href="#operators">Operators</a>
+        <a href="#control">Control Flow</a>
+        <a href="#oop">OOP</a>
+        <a href="#exceptions">Exceptions</a>
+        <a href="#io">I/O</a>
+    </nav>
+    <div class="container">
+        <h1>Java Basics</h1>
+
+        <h2 id="syntax">1. Java Syntax</h2>
+        <p>Java syntax defines the structure and rules for writing programs. Java is <strong>strictly typed</strong>, meaning every variable and method must be declared with a specific type.</p>
+        <p><strong>Main Features of Java Syntax:</strong></p>
+        <ul>
+            <li><strong>Classes and Objects:</strong> Every Java program is written inside a <strong>class</strong> In Java, a class is a blueprint for creating objects. It encapsulates data for the object (attributes or fields) and methods to manipulate that data (functions or behaviors). 
+			Here are a few key points:
+			<br>
+			<ul>
+
+          <br><li>Blueprint: Think of a class as a recipe or template that defines what an object will be. It outlines the properties (data) and actions (methods) that the object can have.</li>
+<br>
+
+          <br><li>Encapsulation: A class bundles data and behavior together, promoting better organization and modularity in code.</li>
+<br>
+
+          <br><li>Instantiation: You create objects (instances) from a class. Each object can have its own values for the attributes defined in the class.</li>
+<br>
+
+         <br><li>Inheritance: Classes can inherit properties and methods from other classes, allowing for hierarchical classification and code reuse.</li>
+		 <p>for example:</p>
+<br>
+<div class="code-box">
+            <code>
+public class Car {
+    // Fields (attributes)
+    String color;
+    String model;
+    
+    // Method (behavior)
+    void startEngine() {
+        System.out.println("Engine started!");
+    }
+}
+
+// Creating an instance of Car
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.color = "Red";
+        myCar.model = "Sedan";
+        myCar.startEngine();  // Output: Engine started!
+    }
+}
+            </code>
+        </div>
+		<p>In this example, the Car class defines the structure of a car object, while the Main class demonstrates how to create and use an instance of Car.</p>
+		</ul>
+		<br>
+            <li><strong>Curly Braces `{}`:</strong> Define code blocks.</li>In Java, a block is a group of statements enclosed within curly braces {}. Blocks are used to define the scope and grouping of code. Here are some key points:
+			<ul>
+			<br>
+			<li>Scope Definition: Variables declared inside a block are only accessible within that block.</li>
+			<br>
+			<li>Control Structures: Blocks are commonly used with control structures like if, for, while, and try-catch to group multiple statements.</li>
+			<br>
+			<li>Method Bodies: The code inside a method is also a block, defining what the method does.</li>
+			<br>
+<div class="code-box">
+            <code>
+public class BlockExample {
+    public static void main(String[] args) {
+        // This is a block within the main method
+        {
+            int x = 10;
+            System.out.println("Inside the block, x = " + x);
+        }
+        // x is not accessible here as it was declared inside the block above
+    }
+}
+            </code>
+        </div>	
+     <p>In this example, the curly braces create a block that limits the scope of the variable x to that block only.</p>	 
+			</ul>
+            <li><strong>Semicolons `;`:</strong> End statements. In Java, the semicolon (;) is used to signal the end of a statement. Think of it as a period at the end of a sentence in written language—it tells the compiler where one instruction ends and another begins. Here are some important points:</li>
+            <br>
+			<ul>
+			<li>Statement Termination: Every executable statement, such as variable declarations, assignments, or method calls, must end with a semicolon.</li>
+			<br>
+			<li>Separation of Statements: Semicolons clearly separate one instruction from another, ensuring the code is parsed correctly.</li>
+			<br>
+			<li>Syntax Errors: Omitting a semicolon where required will result in a syntax error, preventing the code from compiling.</li>
+			<br>
+			<p>for example:</p>
+			<div class="code-box">
+            <code>
+int a = 5;           // Variable declaration and initialization
+a = a + 10;          // Assignment operation
+System.out.println(a); // Method call to print the value of 'a'
+
+            </code>
+        </div>	
+		<p>Without the semicolons, the Java compiler wouldn’t be able to determine where one statement ends, leading to errors.</p>
+			</ul>
+			<li><strong>Case-Sensitive:</strong> Java is case-sensitive, meaning variableName and VariableName are treated as different variables.</li>
+			<ul>
+			<p>for example</p>
+			<div class="code-box">
+            <code>
+int myNumber = 10;
+int MyNumber = 20;
+System.out.println(myNumber);  // Prints 10
+System.out.println(MyNumber);  // Prints 20
+
+            </code>
+        </div>	
+			</ul>
+			<br>
+            <li><strong>Main Method:</strong> Entry point of every Java application.</li>
+			<ul>
+			<li>The entry point of every Java application.</li>
+			<li>It must always have the following signature:</li>
+			<div class="code-box">
+            <code>
+public static void main(String[] args)
+            </code>
+        </div>	
+		<br>
+		<li>This method is executed when the program starts.</li>
+		<p>example:</p>
+		<div class="code-box">
+            <code>
+public class MainMethodExample {
+    public static void main(String[] args) {
+        System.out.println("Java programs start execution from the main method.");
+    }
+}
+            </code>
+        </div>	
+		<br>
+		<li><strong>Without this method, the program won’t run.</strong></li>
+			</ul>
+        </ul>
+ 
+
+        <h2 id="variables">2. Variables & Data Types</h2>
+        <p>A <strong>variable</strong> is a container for storing values, and a <strong>data type</strong> defines the kind of data it can hold.</p>
+        <p><strong>Primitive Data Types:</strong></p>
+        <ul>
+            <li><b>int:</b> Stores whole numbers (e.g., 10, -5).</li>
+            <li><b>double:</b> Stores floating-point numbers (e.g., 3.14, 99.99).</li>
+            <li><b>char:</b> Stores a single character (e.g., 'A', 'Z').</li>
+            <li><b>boolean:</b> Stores <code>true</code> or <code>false</code> values.</li>
+        </ul>
+        <div class="code-box">
+            <code>
+int number = 10;
+double price = 99.99;
+char letter = 'A';
+boolean isJavaFun = true;
+            </code>
+        </div>
+
+        <h2 id="operators">3. Operators</h2>
+        <p>Operators perform operations on variables and values:</p>
+        <ul>
+            <li><b>Arithmetic:</b> +, -, *, /, % (modulus)</li>
+            <li><b>Comparison:</b> ==, !=, >, <, >=, <=</li>
+            <li><b>Logical:</b> && (AND), || (OR), ! (NOT)</li>
+        </ul>
+
+        <h2 id="control">4. Control Flow (if-else, loops)</h2>
+        <p>Control flow structures allow decision-making and repetition.</p>
+        <div class="code-box">
+            <code>
+if (number > 0) {
+    System.out.println("Positive number");
+} else {
+    System.out.println("Negative number");
+}
+            </code>
+        </div>
+        <div class="code-box">
+            <code>
+for (int i = 0; i < 5; i++) {
+    System.out.println("Iteration: " + i);
+}
+            </code>
+        </div>
+
+        <h2 id="oop">5. Object-Oriented Programming (OOP)</h2>
+        <p>Java follows OOP principles like:</p>
+        <ul>
+            <li><b>Encapsulation:</b> Restricting access to data within a class.</li>
+            <li><b>Inheritance:</b> One class inherits another’s properties.</li>
+            <li><b>Polymorphism:</b> Methods behave differently across classes.</li>
+        </ul>
+
+        <h2 id="exceptions">6. Exception Handling</h2>
+        <p>Exceptions handle errors using <code>try-catch</code> blocks.</p>
+        <div class="code-box">
+            <code>
+try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero!");
+}
+            </code>
+        </div>
+
+        <h2 id="io">7. Input/Output Handling</h2>
+        <p>Java allows user input using the Scanner class.</p>
+        <div class="code-box">
+            <code>
+import java.util.Scanner;
+Scanner sc = new Scanner(System.in);
+System.out.println("Enter your name:");
+String name = sc.nextLine();
+System.out.println("Hello, " + name);
+            </code>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Java Learning Hub</p>
+    </footer>
+</body>
+</html>
