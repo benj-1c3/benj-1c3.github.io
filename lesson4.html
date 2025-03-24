@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Calculator Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: left;
+            padding: 20px;
+            background-color: #002147;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #8B0000;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #FFD700;
+        }
+        pre {
+            background: #DAA520;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            color: #000000;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background: #FFD700;
+            color: #000000;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background: #DAA520;
+        }
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #FFD700;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .floating-button:hover {
+            background: #DAA520;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How to Code a Simple Calculator in Java</h1>
+        <p>In this tutorial, you will learn how to create a simple calculator using Java with a <code>Scanner</code> for user input and an operator system for basic calculations.</p>
+        
+        <h2>Step 1: Import Required Packages</h2>
+        <p>First, import the <code>Scanner</code> class for taking user input.</p>
+        <pre>
+import java.util.Scanner;
+        </pre>
+        
+        <h2>Step 2: Create the Main Class</h2>
+        <p>Define the main class and method where the program execution will begin.</p>
+        <pre>
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+        
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+        
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+        
+        double result;
+        
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    return;
+                }
+                break;
+            default:
+                System.out.println("Error: Invalid operator.");
+                return;
+        }
+        
+        System.out.println("Result: " + result);
+        scanner.close();
+    }
+}
+        </pre>
+        
+        <h2>Step 3: Explanation</h2>
+        <ul>
+            <li>We use the <code>Scanner</code> class to take user input.</li>
+            <li>The user enters two numbers and an operator.</li>
+            <li>A <code>switch</code> statement processes the operator and performs the calculation.</li>
+            <li>The result is displayed to the user.</li>
+            <li>Division by zero is checked to prevent errors.</li>
+        </ul>
+        
+        <h2>Step 4: Run the Program</h2>
+        <p>Compile and run the program in your Java environment. Try different inputs to test its functionality.</p>
+        
+        <a href="compiler.html" class="button" target="_blank">Try Our Compiler</a>
+    </div>
+    
+    <a href="index.html" class="floating-button">Home</a>
+</body>
+</html>
