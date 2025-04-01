@@ -168,32 +168,93 @@ public class MainMethodExample {
 
         <h2 id="variables">2. Variables & Data Types</h2>
         <p>A <strong>variable</strong> is a container for storing values, and a <strong>data type</strong> defines the kind of data it can hold.</p>
-        <p><strong>Primitive Data Types:</strong></p>
+		<p>In Java, variables are containers that store data values. Every variable is associated with a data type, which determines what kind of data the variable can hold and how much space it occupies in memory. Java is a strongly and statically typed language, which means that the type of every variable must be declared and cannot change once defined.</p>
+       <p>Data types define the nature and size of the data that can be stored in a variable. Java has two major categories:</p>
+	   <p><strong>Primitive Data Types</strong> These are the basic types of data built into the language. They include:</p>
         <ul>
-            <li><b>int:</b> Stores whole numbers (e.g., 10, -5).</li>
-            <li><b>double:</b> Stores floating-point numbers (e.g., 3.14, 99.99).</li>
-            <li><b>char:</b> Stores a single character (e.g., 'A', 'Z').</li>
-            <li><b>boolean:</b> Stores <code>true</code> or <code>false</code> values.</li>
-        </ul>
-        <div class="code-box">
+            <li>int:
+
+Purpose: Stores whole numbers (e.g., 10, -5).
+
+Example:
+<div class="code-box">
             <code>
-int number = 10;
-double price = 99.99;
-char letter = 'A';
-boolean isJavaFun = true;
+int count = 100;
             </code>
         </div>
 
+</li>
+            <li>double:
+
+Purpose: Stores floating-point numbers (e.g., 3.14, 99.99).
+
+Example:
+<div class="code-box">
+            <code>
+double price = 29.99;
+            </code>
+        </div>
+
+			</li>
+
+            <li>
+			char:
+
+Purpose: Stores a single character (e.g., 'A', 'Z'). Characters must be enclosed in single quotes.
+
+Example:
+<div class="code-box">
+            <code>
+char initial = 'J';
+            </code>
+        </div>
+
+			</li>
+            <li>
+			boolean:
+
+Purpose: Stores one of two values: true or false.
+
+Example:
+<div class="code-box">
+            <code>
+boolean isJavaFun = true;
+            </code>
+        </div>
+			</li>
+        </ul>
+		<p><strong>Reference Data Types</strong> These types refer to objects and arrays. They store references (memory addresses) to the actual data. Examples include:</p>
+        <ul>
+            <li>String: Although not a primitive, strings are commonly used and represent sequences of characters.
+
+Example:
+<div class="code-box">
+            <code>
+String greeting = "Hello, World!";
+            </code>
+        </div>
+</li>
+            <li>Arrays and Objects:
+
+Arrays are used to store multiple values in a single variable.
+
+Custom classes (e.g., Car, Person) define objects that encapsulate data and behavior.</li>
+          
+        
+        </ul>
+        
         <h2 id="operators">3. Operators</h2>
         <p>Operators perform operations on variables and values:</p>
+		<p>Operators are symbols that perform operations on variables and values. They help in executing arithmetic computations, making comparisons, and evaluating logical expressions.</p>
         <ul>
-            <li><b>Arithmetic:</b> +, -, *, /, % (modulus)</li>
-            <li><b>Comparison:</b> ==, !=, >, <, >=, <=</li>
-            <li><b>Logical:</b> && (AND), || (OR), ! (NOT)</li>
+            <li><b>Arithmetic</b> operators are used for performing basic mathematical operations.: +, -, *, /, % (modulus)</li>
+            <li><b>Comparison</b> evaluate the relationship between two operands and return a boolean result: ==, !=, >, <, >=, <= </li>
+            <li><b>Logical operators</b> are used to combine multiple boolean expressions or to invert a boolean value.: && (AND), || (OR), ! (NOT)</li>
         </ul>
 
         <h2 id="control">4. Control Flow (if-else, loops)</h2>
         <p>Control flow structures allow decision-making and repetition.</p>
+		<p>Control flow structures in Java determine the order in which your program's statements are executed. They allow you to perform different actions based on conditions and repeat actions multiple times. Here’s a deeper look:</p>
         <div class="code-box">
             <code>
 if (number > 0) {
