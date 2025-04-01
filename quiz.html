@@ -33,17 +33,7 @@
             transform: translateY(20px);
             transition: opacity 1s ease-out, transform 1s ease-out;
         }
-        .question {
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .options {
-            margin-bottom: 20px;
-        }
-        .result {
-            font-weight: bold;
-            margin-top: 10px;
-        }
+        
         button {
             background-color: #002147;
             color: white;
@@ -53,9 +43,12 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
         }
-        button:hover {
+        button:hover:not([disabled]) {
             background-color: #555;
             transform: scale(1.1);
+        }
+        .btn:disabled{
+            cursor: no-drop;
         }
         footer {
             text-align: center;
@@ -73,52 +66,57 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        #nextbtn {
+            display: block;
+            padding: 10px;
+            margin: 20px auto 0;
+        }
+        .correct{
+            background: green;
+        }
+        .incorrect{
+            background: red;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #002147;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 1s ease-in-out;
+        }
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        nav a:hover {
+            background: #555;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Java Basics Quiz</h1>
     </header>
+    <nav>
+        <a href="index.html">Go Back</a>
+    </nav>
     <div class="quiz-container">
         <h2>Test Your Java Knowledge</h2>
-        
-        <div class="question">1. What is the correct syntax to print "Hello, World!" in Java?</div>
-        <div class="options">
-            <input type="radio" name="q1" value="wrong"> print("Hello, World!"); (Incorrect: Java uses System.out.println() for output.)<br>
-            <input type="radio" name="q1" value="correct"> System.out.println("Hello, World!");<br>
-            <input type="radio" name="q1" value="wrong"> echo("Hello, World!"); (Incorrect: echo() is used in PHP, not Java.)<br>
+        <div class="quiz">
+            <h2 id="question">Question 1</h2>
+            <div id="answers-button">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
         </div>
-        
-        <div class="question">2. Which data type is used to create a variable that should store text?</div>
-        <div class="options">
-            <input type="radio" name="q2" value="correct"> String<br>
-            <input type="radio" name="q2" value="wrong"> int (Incorrect: int is used for integer values, not text.)<br>
-            <input type="radio" name="q2" value="wrong"> boolean (Incorrect: boolean stores true or false values, not text.)<br>
-        </div>
-        
-        <div class="question">3. How do you create a variable with the floating number 2.8?</div>
-        <div class="options">
-            <input type="radio" name="q3" value="correct"> float num = 2.8f;<br>
-            <input type="radio" name="q3" value="wrong"> float num = 2.8; (Incorrect: A float must have an 'f' suffix in Java.)<br>
-            <input type="radio" name="q3" value="wrong"> int num = 2.8; (Incorrect: int only stores whole numbers.)<br>
-        </div>
-        
-        <div class="question">4. Which keyword is used to define a class in Java?</div>
-        <div class="options">
-            <input type="radio" name="q4" value="correct"> class<br>
-            <input type="radio" name="q4" value="wrong"> Class (Incorrect: Java is case-sensitive; 'class' must be lowercase.)<br>
-            <input type="radio" name="q4" value="wrong"> define (Incorrect: 'define' is used in other languages, not Java.)<br>
-        </div>
-        
-        <div class="question">5. What is the default value of a boolean variable?</div>
-        <div class="options">
-            <input type="radio" name="q5" value="correct"> false<br>
-            <input type="radio" name="q5" value="wrong"> true (Incorrect: Java assigns 'false' as the default value for booleans.)<br>
-            <input type="radio" name="q5" value="wrong"> null (Incorrect: Only objects can have null as a default value.)<br>
-        </div>
-        
-        <button onclick="checkAnswers()">Submit</button>
-        <div class="result" id="result"></div>
+        <button id="nextbtn">Next</button>
     </div>
     
     <footer>
@@ -130,24 +128,142 @@
             document.querySelector(".quiz-container").style.opacity = "1";
             document.querySelector(".quiz-container").style.transform = "translateY(0)";
         });
-        function checkAnswers() {
+
+        const questions = [
+            {
+                question: 'What is the correct syntax to print "Hello, World!" in Java?',
+                answers: [
+                    { text: 'print("Hello, World!");', correct: false },
+                    { text: 'System.out.println("Hello, World!");', correct: true },
+                    { text: 'echo("Hello, World");', correct: false },
+                ]
+
+            },
+            {
+                question: 'Which data type is used to create a variable that should store text?',
+                answers: [
+                    { text: 'String', correct: true },
+                    { text: 'int', correct: false },
+                    { text: 'boolean', correct: false },
+                ]
+            },
+            {
+                question: 'How do you create a variable with the floating number 2.8?',
+                answers: [
+                    { text: 'float num = 2.8f', correct: true },
+                    { text: 'float num = 2.8', correct: false },
+                    { text: 'int num = 2.8', correct: false },
+                ]
+            },
+            {
+                question: "Which keyword is used to define a class in Java?",
+                answers: [
+                    { text: "Class", correct: false },
+                    { text: "define", correct: false },
+                    { text: "class", correct: true },
+                ]
+            },
+            {
+                question: "What is the default value of a boolean variable?",
+                answers: [
+                    { text: "false", correct: true },
+                    { text: "true", correct: false },
+                    { text: "null", correct: false },
+                ]
+            }
+
+
+        ];
+            const questionElement = document.getElementById("question");
+            const answerElements = document.getElementById("answers-button");
+            const nextButton = document.getElementById("nextbtn");
+        
+            let currentQuestionIndex = 0;
             let score = 0;
-            const answers = document.querySelectorAll('input:checked');
+
+            function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0; 
+            nextButton.innerHTML = "Next";
+            showQuestion();
+            }
+     
+            function showQuestion(){
+                resetState();
+                let currentQuestion = questions[currentQuestionIndex];
+                let questionNo = currentQuestionIndex + 1;
+                questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
             
-            answers.forEach(answer => {
-                if (answer.value === "correct") {
-                    score++;
+
+            currentQuestion.answers.forEach(answers => {
+                const button = document.createElement("button");
+                button.innerHTML = answers.text;
+                button.classList.add("btn");
+                answerElements.appendChild(button);
+                if(answers.correct){
+                    button.dataset.correct = answers.correct;
                 }
+                button.addEventListener("click", selectAnswer);
             });
-            
-            let resultDiv = document.getElementById("result");
-            resultDiv.innerText = "Your score: " + score + "/5";
-            resultDiv.style.opacity = "0";
-            setTimeout(() => {
-                resultDiv.style.opacity = "1";
-                resultDiv.style.transition = "opacity 1s";
-            }, 100);
         }
+
+
+        function resetState() {
+            nextButton.style.display = "none";
+            while(answerElements.firstChild){
+                answerElements.removeChild(answerElements.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedBtn = e.target;
+            const correct = selectedBtn.dataset.correct === "true";
+            if(correct){
+                selectedBtn.classList.add("correct");
+                score++;
+            }
+            else{
+                selectedBtn.classList.add("incorrect");
+            }
+            Array.from(answerElements.children).forEach(button => {
+                if(button.dataset.correct === "true"){
+                    button.classList.add("correct");
+                }
+                button.disabled = true;
+            });
+            nextButton.style.display = "block";
+        }
+
+        function showScore(){
+            resetState();
+            questionElement.innerHTML = 'You scored ' + score + ' out of ' + questions.length + '!';
+            nextButton.innerHTML = "Restart";
+            nextButton.style.display = "block";
+        }
+
+
+            function handleNextButton(){
+                currentQuestionIndex++;
+                if(currentQuestionIndex < questions.length){
+                    showQuestion();
+                }
+                else{
+                    showScore();
+                }
+            }
+
+
+        nextButton.addEventListener("click", () =>{
+    if(currentQuestionIndex < questions.length){
+            handleNextButton();
+    }
+    else{
+        startQuiz();
+    }
+});
+
+        startQuiz();
+
     </script>
 </body>
 </html>
